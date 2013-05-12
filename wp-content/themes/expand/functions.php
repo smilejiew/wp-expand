@@ -448,3 +448,27 @@ function twentytwelve_customize_preview_js() {
 	wp_enqueue_script( 'twentytwelve-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'customize-preview' ), '20120827', true );
 }
 add_action( 'customize_preview_init', 'twentytwelve_customize_preview_js' );
+
+
+/*** Start custom function *************************************************/
+
+    /**
+     * Register styles for later use
+     * @global type $wp_styles
+     */
+    function my_theme_register_styles() {
+        $uri = get_stylesheet_directory_uri();
+        wp_register_style('my_theme_reset', $uri . '/css/reset.css', array(), '1.0', 'all');
+        wp_register_style('my_theme_style', $uri . '/style.css', array('my_theme_reset'), '1.0', 'all');
+        wp_register_style('my_theme_wysiwyg', $uri . '/css/wysiwyg.css', array('my_theme_style'), '1.0', 'all');
+    }
+    add_action('init', 'my_theme_register_styles');
+
+    /**
+     * Print out styles for theme
+     */
+    function my_theme_style() {
+        wp_enqueue_style('my_theme_style');
+        wp_enqueue_style('my_theme_wysiwyg');
+    }
+    add_action('wp_print_styles', 'my_theme_style');

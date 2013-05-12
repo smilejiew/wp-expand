@@ -3,21 +3,21 @@
  * The template for displaying the footer.
  *
  * Contains footer content and the closing of the
- * #main and #page div elements.
- *
- * @package WordPress
- * @subpackage Twenty_Twelve
- * @since Twenty Twelve 1.0
+ * #body, #site-wrapper and #page div elements.
  */
 ?>
-	</div><!-- #main .wrapper -->
-	<footer id="colophon" role="contentinfo">
-		<div class="site-info">
-			<?php do_action( 'twentytwelve_credits' ); ?>
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentytwelve' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentytwelve' ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentytwelve' ), 'WordPress' ); ?></a>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+    </div><!-- #body .wrapper -->
+
+    <!-- FOOTER -->
+    <div id="footer">
+      <?php /* Footer menu */ ?>
+      <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-footer', 'depth' => 1 ) ); ?>
+
+      <?php /* Credits */ ?>
+      <p><a href="<?php echo esc_url( __( 'http://wordpress.org/', 'expand' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentytwelve' ); ?>"><?php printf( __( 'Powered by %s',  'twentytwelve' ), 'WordPress' ); ?></a></p>
+    </div>
+  </div><!-- #site-wrapper .wrapper -->
+</div><!-- #page .wrapper -->
 
 <?php wp_footer(); ?>
 </body>
