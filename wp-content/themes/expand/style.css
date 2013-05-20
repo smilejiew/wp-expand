@@ -33,14 +33,6 @@
     --------------------------------
     [D-4] Content
     --------------------------------
-      [D-4-01] Panels
-      [D-4-02] Logo
-      [D-4-03] Page Navigation
-      [D-4-04] Menu
-      [D-4-05] Content
-      [D-4-06] Bullet
-      [D-4-07] Detail box
-    --------------------------------
     [D-5] Javascript
 ---------------------------------------------------------------- */
 
@@ -81,17 +73,17 @@ a img{
 }
 .logo a{
   display: block;
-  width: 375px;
-  height: 107px;
+  width: 356px;
+  height: 110px;
   float: left;
-  background: url("img/logo-expand.jpg") center center no-repeat;
+  background: url("img/logo-expand.png") center center no-repeat;
 }
 .logo span{
   display: none;
 }
 .main-menu{
   font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
-  padding-top: 75px;
+  padding-top: 82px;
 }
 .main-menu li{
   float: left;
@@ -101,7 +93,7 @@ a img{
   color: #666666;
   font-size: 25px;
   font-weight: bold;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 .main-menu li + li > a{
   margin-left: 50px;
@@ -111,7 +103,7 @@ a img{
   display: block;
   height: 9px;
 }
-.main-menu li:hover > a > span, .main-menu > li.current_page_item > a > span{
+.main-menu li:hover > a > span, .main-menu li.current_page_item > a > span{
   background-color: #FF4000;
   -webkit-border-radius: 3px 3px 0 0;
   -moz-border-radius: 3px 3px 0 0;
@@ -146,19 +138,22 @@ a img{
 /* [D-4] Content
 -------------------------------- */
 #body{
-  padding: 40px 35px;
+  padding: 40px 25px;
 }
 #body > .nav-right, #body > .nav-left{
   padding-bottom: 40px;
+  min-height: 700px;
 }
 #body > .nav-right{
+  background: url("img/bg-line.png") left 50px no-repeat;
+  padding-left: 25px;
   width: 240px;
-  margin-left: 35px;
   float: right;
 }
 #body > .nav-left{
-  width: 270px;
-  margin-right: 5px;
+  background: url("img/bg-line.png") right 50px no-repeat;
+  width: 255px;
+  padding-right: 25px;
   float: left;
 }
 #body > .nav-left + .content, #body > .nav-right + .nav-left + .content{
@@ -173,6 +168,9 @@ a img{
   color: #333333;
   text-shadow: #999999 0.05em 0.05em 0.05em;
   padding-bottom: 25px;
+}
+#body > .nav-right > h2{
+  text-align: center;
 }
 #body > .content > h1{
   font-size: 35px;
@@ -201,13 +199,12 @@ a img{
   clear: both;
 }
 .news-list > li .preview{
-  width: 250px;
   font-style: italic;
   padding-bottom: 10px;
 }
 .news-list > li .preview-img{
   float: left;
-  padding-right: 5px;
+  padding-right: 10px;
   max-width: 50%;
 }
 .news-list > li .date, .news-list > li .read-more{
@@ -220,6 +217,8 @@ a img{
   padding: 5px 10px;
   border: 1px solid #D2D2D2;
   color: #333333;
+  margin-right: -27px;
+  background-color: #FFFFFF;
 
   -moz-box-shadow: 0 0 5px #888;
   -webkit-box-shadow: 0 0 5px #888;
