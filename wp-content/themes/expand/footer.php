@@ -11,7 +11,7 @@
     <!-- FOOTER -->
     <div id="footer">
       <?php /* Footer menu */ ?>
-      <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-footer', 'depth' => 1 ) ); ?>
+      <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-footer', 'depth' => 1, 'exclude' => 6 ) ); ?>
 
       <?php /* Credits */ ?>
       <p><a href="<?php echo esc_url( __( 'http://wordpress.org/', 'expand' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentytwelve' ); ?>"><?php printf( __( 'Powered by %s',  'twentytwelve' ), 'WordPress' ); ?></a></p>

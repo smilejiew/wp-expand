@@ -7,27 +7,20 @@
  * @since Twenty Twelve 1.0
  */
 
-get_header(); ?>
+get_header();
+get_sidebar('right');
+get_sidebar('left'); ?>
+<div class="content">
+    <?php while ( have_posts() ) : the_post(); ?>
+        <h1><?php the_title(); ?><span class="content-date"> - <? echo get_the_time('d/m/y', get_the_ID());?></span></h1>
+        <div class="wysiwyg">
+            <?php the_content(); ?>
+        </div>
 
-	<div id="primary" class="site-content">
-		<div id="content" role="main">
-
-			<?php while ( have_posts() ) : the_post(); ?>
-
-				<?php get_template_part( 'content', get_post_format() ); ?>
-
-				<nav class="nav-single">
-					<h3 class="assistive-text"><?php _e( 'Post navigation', 'twentytwelve' ); ?></h3>
-					<span class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'twentytwelve' ) . '</span> %title' ); ?></span>
-					<span class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'twentytwelve' ) . '</span>' ); ?></span>
-				</nav><!-- .nav-single -->
-
-				<?php comments_template( '', true ); ?>
-
-			<?php endwhile; // end of the loop. ?>
-
-		</div><!-- #content -->
-	</div><!-- #primary -->
-
-<?php get_sidebar(); ?>
+        <nav class="nav-single">
+            <span class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'twentytwelve' ) . '</span> %title' ); ?></span>
+            <span class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'twentytwelve' ) . '</span>' ); ?></span>
+        </nav><!-- .nav-single -->
+    <?php endwhile; // end of the loop. ?>
+</div>
 <?php get_footer(); ?>

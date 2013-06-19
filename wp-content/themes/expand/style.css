@@ -43,11 +43,11 @@
 body{
   background-color: #FFFFFF;
   color: #333333;
-  font-size: 16px;
+  font-size: 14px;
 }
 #site-wrapper{
   margin: 0px auto;
-  width: 1276px;
+  width: 960px;
 }
 #header, #body, #footer{
   clear: both;
@@ -73,8 +73,8 @@ a img{
 }
 .logo a{
   display: block;
-  width: 356px;
-  height: 110px;
+  width: 260px;
+  height: 81px;
   float: left;
   background: url("img/logo-expand.png") center center no-repeat;
 }
@@ -83,7 +83,7 @@ a img{
 }
 .main-menu{
   font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
-  padding-top: 82px;
+  padding-top: 60px;
 }
 .main-menu li{
   float: left;
@@ -91,17 +91,16 @@ a img{
 .main-menu li > a{
   display: block;
   color: #666666;
-  font-size: 25px;
-  font-weight: bold;
-  margin-left: 20px;
+  font-size: 18px;
+  margin-left: 30px;
 }
 .main-menu li + li > a{
-  margin-left: 50px;
+  margin-left: 45px;
 }
 .main-menu li > a > span{
-  margin-top: 20px;
+  margin-top: 10px;
   display: block;
-  height: 9px;
+  height: 7px;
 }
 .main-menu li:hover > a > span, .main-menu li.current_page_item > a > span{
   background-color: #FF4000;
@@ -112,25 +111,33 @@ a img{
   -webkit-box-shadow: 5px 5px 5px #999999;
   box-shadow: 5px 5px 5px #999999;
 }
+#banner{
+  clear: both;
+  overflow: hidden;
+}
+#banner img{
+  max-width: none;
+}
 /* [D-3] Footer
 -------------------------------- */
 #footer{
   background: url("img/bg-footer.png") repeat-x #818285;
-  padding: 30px 10px 10px 10px;
+  padding: 20px 10px 10px 10px;
   text-align: center;
   color: #FFFFFF;
+  font-size: 10px;
 }
 #footer a{
   color: #FFFFFF;
 }
 .nav-footer{
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 .nav-footer li{
   display: inline;
 }
 .nav-footer li > a{
-  font-size: 20px;
+  font-size: 18px;
 }
 .nav-footer li + li > a{
   margin-left: 50px;
@@ -138,7 +145,7 @@ a img{
 /* [D-4] Content
 -------------------------------- */
 #body{
-  padding: 40px 25px;
+  padding: 40px 20px;
 }
 #body > .nav-right, #body > .nav-left{
   padding-bottom: 40px;
@@ -146,24 +153,24 @@ a img{
 }
 #body > .nav-right{
   background: url("img/bg-line.png") left 50px no-repeat;
-  padding-left: 25px;
-  width: 240px;
+  padding-left: 20px;
+  width: 180px;
   float: right;
 }
 #body > .nav-left{
   background: url("img/bg-line.png") right 50px no-repeat;
-  width: 255px;
-  padding-right: 25px;
+  width: 195px;
+  padding-right: 20px;
   float: left;
 }
 #body > .nav-left + .content, #body > .nav-right + .nav-left + .content{
-  margin-left: 285px;
+  margin-left: 215px;
 }
 #body > .nav-right + .content, #body > .nav-right + .nav-left + .content{
-  margin-right: 285px;
+  margin-right: 215px;
 }
 #body > .nav-left > h2, #body > .nav-right > h2{
-  font-size: 30px;
+  font-size: 22px;
   font-weight: normal;
   color: #333333;
   text-shadow: #999999 0.05em 0.05em 0.05em;
@@ -173,7 +180,7 @@ a img{
   text-align: center;
 }
 #body > .content > h1{
-  font-size: 35px;
+  font-size: 30px;
   color: #334a9d;
   padding-bottom: 20px;
 }
@@ -194,8 +201,16 @@ a img{
   clear: both;
 }
 
+.attachment-list li{
+  text-align: center;
+  padding-bottom: 10px;
+}
+
 .news-list > li + li{
   padding-top: 25px;
+  clear: both;
+}
+.news-list > li > div{
   clear: both;
 }
 .news-list > li .preview{
@@ -208,7 +223,7 @@ a img{
   max-width: 50%;
 }
 .news-list > li .date, .news-list > li .read-more{
-  font-size: 13px;
+  font-size: 12px;
   display: inline-block;
   padding: 5px 0;
 }
@@ -217,10 +232,41 @@ a img{
   padding: 5px 10px;
   border: 1px solid #D2D2D2;
   color: #333333;
-  margin-right: -27px;
+  margin-right: -25px;
   background-color: #FFFFFF;
 
   -moz-box-shadow: 0 0 5px #888;
   -webkit-box-shadow: 0 0 5px #888;
   box-shadow: 0 0 5px #888;
+}
+
+.market-map{
+  position: relative;
+}
+.market-map .bullet{
+  display: block;
+  position: absolute;
+  background: url("img/bg-pin.png") top center no-repeat;
+  height: 49px;
+  width: 30px;
+  overflow: hidden;
+}
+.market-map .bullet:hover{
+  background-position: bottom center;
+}
+.market-map .bullet span{
+  display: none;
+}
+
+.product-slide{
+  height: 450px;
+}
+.nav-single{
+  padding-top: 20px;
+}
+.content-date{
+  font-size: 12px;
+  font-style: italic;
+  font-weight: normal;
+  color: #666666;
 }

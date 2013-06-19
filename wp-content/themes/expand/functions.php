@@ -1,4 +1,10 @@
 <?php
+
+/// hide admin bar
+add_filter('show_admin_bar', '__return_false');
+
+add_theme_support( 'post-thumbnails' );
+
 /**
  * Twenty Twelve functions and definitions.
  *
@@ -26,7 +32,7 @@
  * Sets up the content width value based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) )
-	$content_width = 625;
+	$content_width = 680;
 
 /**
  * Sets up theme defaults and registers the various WordPress features that
@@ -73,7 +79,7 @@ function twentytwelve_setup() {
 
 	// This theme uses a custom image size for featured images, displayed on "standard" posts.
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 624, 9999 ); // Unlimited height, soft crop
+	set_post_thumbnail_size( 960, 9999 ); // Unlimited height, soft crop
 }
 add_action( 'after_setup_theme', 'twentytwelve_setup' );
 
@@ -472,3 +478,48 @@ add_action( 'customize_preview_init', 'twentytwelve_customize_preview_js' );
         wp_enqueue_style('my_theme_wysiwyg');
     }
     add_action('wp_print_styles', 'my_theme_style');
+
+    /**
+     * Adding a custom field in the image attachment.
+     *
+     * @param array $form_fields
+     * @param object $post
+     * @return array
+     */
+    function my_image_attachment_fields_to_edit($form_fields, $post) {
+        /* Image tag */
+        $select_name = "custom_tag";
+        $tag_meta    = get_post_meta($post->ID, "_$select_name", true);
+        $tag_list    = array('none' => 'None', 'main' => 'Main Image', 'left' => 'Left Image', 'preview' => 'Preview Image');
+        $html = "<select name='attachments[$post->ID][$select_name]'>";
+            foreach ( $tag_list as $k => $v ) {
+                // Set the option selected or not
+                $selected = $tag_meta == $k ? ' selected="selected"' : '';
+                $html .= "<option $selected value='$k'>$v</option>";
+            }
+        $html .= "</select>";
+        $form_fields["custom_banner"]["label"] = __("Image tag");
+        $form_fields["custom_banner"]["input"] = "html";
+        $form_fields["custom_banner"]["html"]  = $html;
+
+        return $form_fields;
+    }
+    add_filter("attachment_fields_to_edit", "my_image_attachment_fields_to_edit", null, 2);
+
+    /**
+     * Saving a custom field of the image attachment.
+     *
+     * @param array $post
+     * @param array $attachment
+     * @return array
+     */
+    function my_image_attachment_fields_to_save($post, $attachment) {
+        /* Image tag */
+        $select_name = "custom_tag";
+        if( isset($attachment[$select_name]) ) {
+            update_post_meta($post['ID'], "_$select_name", $attachment[$select_name]);
+        }
+
+        return $post;
+    }
+    add_filter("attachment_fields_to_save", "my_image_attachment_fields_to_save", null, 2);

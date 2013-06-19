@@ -19,9 +19,5 @@ get_sidebar('right');
 get_sidebar('left');
 ?>
 <!-- CONTENT -->
-<div class="content">
-  <div class="wysiwyg">
-  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-  </div>
-</div>
+<?  get_template_part( 'content', 'page' ); ?>
 <?php get_footer(); ?>

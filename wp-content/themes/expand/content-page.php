@@ -2,11 +2,20 @@
 /**
  * The template used for displaying page content in page.php
  */
+include('inc_global.php');
+
+if(is_home()){
+    $page_id = $home_page_id;
+}else{
+    $page_id = get_the_ID();
+}
+$page = get_page($page_id);
+
 ?>
 
 <div class="content">
-  <h1>Header text</h1>
-  <div class="wysiwyg">
-  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-  </div>
+    <? if(!is_home()){ ?><h1><?=$page->post_title;?></h1><? } ?>
+    <div class="wysiwyg">
+        <?=$page->post_content;?>
+    </div>
 </div>

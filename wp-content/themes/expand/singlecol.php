@@ -1,5 +1,7 @@
 <?php
 /**
+ * Template Name: Single Column
+ *
  * The template for displaying all pages.
  *
  * This is the template that displays all pages by default.
@@ -8,11 +10,15 @@
  * different template.
  */
 
-  get_header();
-  get_sidebar('right');
-  get_sidebar('left');
-  while ( have_posts() ) : the_post();
-    get_template_part( 'content', 'page' );
-  endwhile; // end of the loop.
-  get_footer();
+get_header();
+
+include('inc_global.php');
+
+$page = get_page(get_the_ID());
+
 ?>
+<div class="content">
+    <?=$page->post_content;?>
+</div>
+
+<? get_footer(); ?>
